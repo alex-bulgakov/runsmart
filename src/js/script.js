@@ -84,8 +84,11 @@ $(document).ready(function(){
    validateForms('#consultation form');
    validateForms('#order form');
 
+   // mask phone
    $("input[name=phone]").mask("+7(999) 999-99-99");
-   
+
+  
+ // send email ajax  
    $('form').submit(function(e) {
      e.preventDefault();
      $.ajax({
@@ -94,10 +97,27 @@ $(document).ready(function(){
       data: $(this).serialize()
      }).done(function() {
       $(this).find("input").val("");
+      $('#consultation, #order').fadeOut();
+      $('overlay, #thanks').fadeIn();
 
       $('form').trigger('reset');
      });
      return false;
+   });
+
+
+// Smooth scroll and pageup
+   $(window).scroll(function() {
+    if ($(this).scrollTop() > 1600) {
+      $('.pageup').fadeIn('fast');
+    } else {
+      $('.pageup').fadeOut('fast');
+    }
+   });
+
+   $("a[href^='#']").click(function() {
+    var _href = $(this).attr("href");
+    $("html, body").animate({scrollTop: $(_href).offset().top+"px"});
    });
 
 });

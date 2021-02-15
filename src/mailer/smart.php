@@ -1,12 +1,12 @@
 <?php
 
-// $name = $_POST['name'];
-// $phone = $_POST['phone'];
-// $email = $_POST['email'];
+$name = $_POST['name'];
+$phone = $_POST['phone'];
+$email = $_POST['email'];
 
-$name = "Test name";
-$phone = "+7956315";
-$email = "adff@se";
+// $name = "Test name";
+// $phone = "+7956315";
+// $email = "adff@se";
 
 require_once('phpmailer/PHPMailerAutoload.php');
 $mail = new PHPMailer;
@@ -15,15 +15,15 @@ $mail->CharSet = 'utf-8';
 $mail->SMTPDebug = 1;                               // Enable verbose debug output
 
 $mail->isSMTP();                                      // Set mailer to use SMTP
-$mail->Host = 'smtp.beget.com';  // Specify main and backup SMTP servers
+$mail->Host = 'smtp.beget.ru';  // Specify main and backup SMTP servers
 $mail->SMTPAuth = true;                               // Enable SMTP authentication
 $mail->Username = 'test@kwas.ru';                 // Наш логин
 $mail->Password = '7o2cp9K6';                           // Наш пароль от ящика
-//$mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
-//$mail->Port = 465;                                    // TCP port to connect to
+// $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
+$mail->Port = 25;                                    // TCP port to connect to
 
 $mail->setFrom('test@kwas.ru', 'Pulse');   // От кого письмо 
-$mail->addAddress('nofexet774@wirese.com');     // Add a recipient
+$mail->addAddress($email);     // Add a recipient
 //$mail->addAddress('ellen@example.com');               // Name is optional
 //$mail->addReplyTo('info@example.com', 'Information');
 //$mail->addCC('cc@example.com');
