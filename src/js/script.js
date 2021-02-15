@@ -56,5 +56,9 @@ $(document).ready(function(){
       });
     });
 
+
+    // Validation
+   $('.feed-form') .validate();
+
 });
 
