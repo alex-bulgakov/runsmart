@@ -31,4 +31,8 @@ gulp.task('watch', function() {
   gulp.watch("src/js/**/*.js").on("change", browserSync.reload);
 });
 
+gulp.task('copy', function() {
+
+});
+
 gulp.task('default', gulp.parallel('watch', 'server', 'styles'));

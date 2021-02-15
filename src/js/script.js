@@ -73,7 +73,7 @@ $(document).ready(function(){
           name: "Пожалуйста введите Ваше имя",
           phone: "Пожалуйста введите Ваш номер телефона",
           email: {
-            required: "Нужен email адресс чтобы связаться с вами",
+            required: "Нужен email адрес чтобы связаться с вами",
             email: "Ваш email адресс должен быть в формате name@domain.com"
           }
         }
@@ -85,6 +85,20 @@ $(document).ready(function(){
    validateForms('#order form');
 
    $("input[name=phone]").mask("+7(999) 999-99-99");
+   
+   $('form').submit(function(e) {
+     e.preventDefault();
+     $.ajax({
+      type: "POST",
+      url: "mailer/smart.php",
+      data: $(this).serialize()
+     }).done(function() {
+      $(this).find("input").val("");
+
+      $('form').trigger('reset');
+     });
+     return false;
+   });
 
 });
 
