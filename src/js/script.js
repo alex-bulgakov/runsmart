@@ -58,7 +58,31 @@ $(document).ready(function(){
 
 
     // Validation
-   $('.feed-form') .validate();
+
+   function validateForms(form) {
+    $(form) .validate({
+        rules: {
+          name: "required",
+          phone: "required",
+          email: {
+            required: true,
+            email: true
+          }
+        },
+        messages: {
+          name: "Пожалуйста введите Ваше имя",
+          phone: "Пожалуйста введите Ваш номер телефона",
+          email: {
+            required: "Нужен email адресс чтобы связаться с вами",
+            email: "Ваш email адресс должен быть в формате name@domain.com"
+          }
+        }
+      });
+   }
+
+   validateForms('#consultation-form');
+   validateForms('#consultation form');
+   validateForms('#order form');
 
 });
 
