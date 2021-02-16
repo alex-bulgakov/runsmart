@@ -17,8 +17,8 @@ $mail->SMTPDebug = 1;                               // Enable verbose debug outp
 $mail->isSMTP();                                      // Set mailer to use SMTP
 $mail->Host = 'smtp.beget.ru';  // Specify main and backup SMTP servers
 $mail->SMTPAuth = true;                               // Enable SMTP authentication
-$mail->Username = 'test@kwas.ru';                 // Наш логин
-$mail->Password = '7o2cp9K6';                           // Наш пароль от ящика
+$mail->Username = '';                 // Наш логин
+$mail->Password = '';                           // Наш пароль от ящика
 // $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
 $mail->Port = 25;                                    // TCP port to connect to
 
